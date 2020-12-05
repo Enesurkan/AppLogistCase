@@ -8,8 +8,10 @@
 
 import Foundation
 
-public struct RequestProduct : Codable {
+public struct RequestProduct : Codable, RequestProtocol {
     public var products: [Product]?
     
-    public init(){}
+    public init(_ products: [Product]){
+        self.products = products
+    }
 }

@@ -18,6 +18,7 @@ final class ProductListViewModel : BaseViewModel, ProductListViewModelProtocol {
     private var productListRepository = ProductListRepository()
     var productList : BehaviorRelay<[Products]?> = BehaviorRelay(value: nil)
     var basketProduct : BehaviorRelay<[Product]> = BehaviorRelay(value: [])
+    var checkout : BehaviorRelay<Checkout?> = BehaviorRelay(value: nil)
     
     func getProductList(){
         productListRepository.getProductList([Products].self)
@@ -29,8 +30,17 @@ final class ProductListViewModel : BaseViewModel, ProductListViewModelProtocol {
                     self.showAlertMessage("Üzgünüm!", message: "Gösterilecek ürün bulunamadı.", buttonTitle: "Tamam")
                 }
                 }, onError: { (error) in
-                    print(error)
+                    self.showAlertMessage("Üzgünüm!", message: error.localizedDescription, buttonTitle: "Tamam")
             }).disposed(by: disposeBag)
+    }
+    
+    func checkoutService(){
+        productListRepository.checkout(Checkout.self, checkoutRequestBody: RequestProduct(basketProduct.value))
+            .subscribe(onNext: {[weak self] (checkout) in
+                self?.checkout.accept(checkout)
+            }, onError: { (error) in
+                self.showAlertMessage("Üzgünüm!", message: error.localizedDescription, buttonTitle: "Tamam")
+        }).disposed(by: disposeBag)
     }
     
     func addToBasket(productData: Product){
@@ -43,6 +53,10 @@ final class ProductListViewModel : BaseViewModel, ProductListViewModelProtocol {
         var _tempBasket = basketProduct.value
         _tempBasket.remove(at: getBasketProductIndex(id: id))
         basketProduct.accept(_tempBasket)
+    }
+    
+    func removeAllBasket(){
+        basketProduct.accept([])
     }
     
     func getBasketProductIndex(id : String) -> Int{
@@ -86,5 +100,22 @@ final class ProductListViewModel : BaseViewModel, ProductListViewModelProtocol {
             basketData.append(productData)
             basketProduct.accept(basketData)
         }
+    }
+    
+    func getBasketTotalPrice() -> Double{
+        guard let _productList = productList.value else {return 0}
+        if _productList.count == 0 {return 0}
+        if basketProduct.value.count == 0 {return 0}
+        var totalPrice : Double = 0.0
+        _ = basketProduct.value.map {
+            totalPrice = totalPrice + ((self.getServerData(id: $0.id ?? "").price ?? 0.0) * Double($0.amount ?? 0))
+        }
+        return totalPrice
+    }
+    
+    func getProductsCurrency() -> String{
+        guard let _productList = productList.value else {return ""}
+        if _productList.count == 0 {return ""}
+        return _productList.first?.currency ?? ""
     }
 }

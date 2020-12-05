@@ -28,7 +28,7 @@ class BaseViewController: UIViewController {
     func navigatePresentVC(storyboard: AppStoryboardType, appScene: AppSceneType, animation: Bool = true, style: UIModalPresentationStyle = .formSheet, success: (() -> Void)? = nil){
         let vc = UIStoryboard.init(name: storyboard.description, bundle: nil).instantiateViewController(withIdentifier: appScene.description)
         vc.modalPresentationStyle = style
-        self.present(vc, animated: false) {
+        self.present(vc, animated: animation) {
             success?()
         }
     }

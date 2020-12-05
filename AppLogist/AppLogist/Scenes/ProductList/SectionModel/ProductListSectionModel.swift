@@ -24,4 +24,5 @@ enum ProductSectionModel{
 
 enum ProductSectionItem {
     case ProductSectionItem(product: Products)
+    case BasketProductSectionItem(basketProduct: Products)
 }

@@ -1,40 +1,40 @@
 //
-//  ProductCell.swift
+//  BasketProductCell.swift
 //  AppLogist
 //
-//  Created by Enes Urkan on 12/4/20.
+//  Created by Enes Urkan on 12/5/20.
 //  Copyright © 2020 Enes Urkan. All rights reserved.
 //
 
 import UIKit
 import Reusable
-import PINRemoteImage
 import RxSwift
 import RxCocoa
 
-class ProductCell: UICollectionViewCell, NibReusable {
-    
-    var data: Products?
-    let disposeBag = DisposeBag()
-    var viewModel: ProductListViewModel?
+class BasketProductCell: UITableViewCell, NibReusable {
     @IBOutlet weak var removeLabel: UILabel!
     @IBOutlet weak var removeButton: UIButton!
     @IBOutlet weak var productCount: UILabel!
     @IBOutlet weak var addLabel: UILabel!
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productName: UILabel!
+    @IBOutlet weak var productImage: UIImageView!
+    let disposeBag = DisposeBag()
+    var data: Products?
+    var viewModel: ProductListViewModel?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         subscribeButton()
     }
     
-    func resetUI(isHidden: Bool){
-        removeLabel.isHidden = isHidden
-        productCount.isHidden = isHidden
-        removeButton.isHidden = isHidden
+    func setupUI(_ product: Products){
+        data = product
+        productName.text = data?.name ?? ""
+        productPrice.text = "\(data?.currency ?? "")\((data?.price ?? 0).twoDecimalString)"
+        productImage.pin_setImage(from: URL(string: data?.imageUrl ?? "")!)
+        productCount.text = "\(product.addedCount ?? 0)"
     }
     
     func subscribeButton(){
@@ -51,26 +51,4 @@ class ProductCell: UICollectionViewCell, NibReusable {
         }.disposed(by: disposeBag)
     }
     
-    func setupUI(_ product: Products){
-        data = product
-        productName.text = data?.name ?? ""
-        productPrice.text = "\(data?.currency ?? "")\((data?.price ?? 0).twoDecimalString)"
-        productImage.pin_setImage(from: URL(string: data?.imageUrl ?? "")!)
-        if product.isAddBasket ?? false {
-            basketAddUI()
-        }else{
-            resetUI(isHidden: true)
-        }
-    }
-    
-    func basketAddUI(){
-        resetUI(isHidden: false)
-        productCount.text = "\(data?.addedCount ?? 0)"
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        resetUI(isHidden: true)
-    }
-
 }

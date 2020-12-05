@@ -27,9 +27,14 @@ extension UIApplication {
 }
 
 extension UIViewController {
-    func showAlertMessage(_ title : String, message : String, buttonTitle : String){
+    func showAlertMessage(_ title : String, message : String, buttonTitle : String, cancelButtonText: String? = nil, success: (() -> Void)? = nil){
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: buttonTitle, style: UIAlertAction.Style.default, handler: nil))
+        if let _cancelButtonText = cancelButtonText{
+            alert.addAction(.init(title: _cancelButtonText, style: .cancel, handler: nil))
+        }
+        alert.addAction(.init(title: buttonTitle, style: .default, handler: { (action) in
+            success?()
+        }))
         self.present(alert, animated: true, completion: nil)
     }
 }

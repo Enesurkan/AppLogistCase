@@ -41,7 +41,7 @@ final class RequestInterceptor: PluginType {
         
         func addedProgress(_ serviceType : AppAPI) -> Bool{
             switch serviceType {
-            case .productList:
+            case .productList,.checkout:
                 return true
             }
         }

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BasketNavigationView" customModule="AppLogist" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="515" height="74"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Uj-9f-60e">
+                    <rect key="frame" x="0.0" y="0.0" width="50" height="74"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sK0-9W-ymX">
+                            <rect key="frame" x="5" y="0.0" width="40" height="74"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="Sil">
+                                <color key="titleColor" red="1" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="sK0-9W-ymX" firstAttribute="leading" secondItem="4Uj-9f-60e" secondAttribute="leading" constant="5" id="9cy-Hi-I2o"/>
+                        <constraint firstAttribute="trailing" secondItem="sK0-9W-ymX" secondAttribute="trailing" constant="5" id="RsM-ds-UAL"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="TLZ-9Q-unb"/>
+                        <constraint firstAttribute="bottom" secondItem="sK0-9W-ymX" secondAttribute="bottom" id="aK5-Bj-Y0S"/>
+                        <constraint firstItem="sK0-9W-ymX" firstAttribute="top" secondItem="4Uj-9f-60e" secondAttribute="top" id="exu-kU-6rb"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e5f-Ji-BE3">
+                    <rect key="frame" x="462" y="0.0" width="53" height="74"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2f5-RX-evc">
+                            <rect key="frame" x="5" y="0.0" width="43" height="74"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="Kapat">
+                                <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="2f5-RX-evc" firstAttribute="leading" secondItem="e5f-Ji-BE3" secondAttribute="leading" constant="5" id="Nn8-g3-w8Q"/>
+                        <constraint firstAttribute="trailing" secondItem="2f5-RX-evc" secondAttribute="trailing" constant="5" id="bog-gR-DHV"/>
+                        <constraint firstAttribute="bottom" secondItem="2f5-RX-evc" secondAttribute="bottom" id="hBy-cM-dwu"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="lll-5c-rei"/>
+                        <constraint firstItem="2f5-RX-evc" firstAttribute="top" secondItem="e5f-Ji-BE3" secondAttribute="top" id="njy-Jl-oAd"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sepet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ayq-XP-XHq">
+                    <rect key="frame" x="234" y="26.5" width="47" height="21"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="4Uj-9f-60e" secondAttribute="bottom" id="2ga-MI-p3r"/>
+                <constraint firstAttribute="bottom" secondItem="e5f-Ji-BE3" secondAttribute="bottom" id="3Jj-ox-1TJ"/>
+                <constraint firstItem="4Uj-9f-60e" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="4nU-Mb-8S7"/>
+                <constraint firstItem="e5f-Ji-BE3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ezo-bg-Jsz"/>
+                <constraint firstItem="4Uj-9f-60e" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="F8Q-W2-atq"/>
+                <constraint firstItem="Ayq-XP-XHq" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="QKF-v5-UTh"/>
+                <constraint firstItem="Ayq-XP-XHq" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="XRY-iR-pyk"/>
+                <constraint firstAttribute="trailing" secondItem="e5f-Ji-BE3" secondAttribute="trailing" id="lsa-2o-CQ4"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="closeButton" destination="2f5-RX-evc" id="bJP-v2-hio"/>
+                <outlet property="deleteButton" destination="sK0-9W-ymX" id="Eaj-5z-JZK"/>
+            </connections>
+            <point key="canvasLocation" x="218.40000000000001" y="-269.86506746626691"/>
+        </view>
+    </objects>
+</document>

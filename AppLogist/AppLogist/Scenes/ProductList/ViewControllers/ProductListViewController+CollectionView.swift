@@ -54,27 +54,6 @@ extension ProductListViewController {
         self.section.accept(self.listDefineSections(_model: products))
     }
     
-    private func runCheckItemProcess(basketData: [Product], serverData: [Products]) -> [Products]{
-        if serverData.count == 0 {
-            return []
-        }
-        
-        if basketData.count == 0 {
-            return serverData
-        }
-        
-        return (serverData.map({ (product) -> Products in
-            var _tempProduct = product
-            _ = basketData.map({ basketData in
-                if product.id == basketData.id{
-                    _tempProduct.addedCount = basketData.amount ?? 0
-                    _tempProduct.isAddBasket = true
-                }
-            })
-            return _tempProduct
-        }))
-    }
-    
     private func initializeCollectionView() {
         setupCollectionViewDataBinding()
     }
@@ -92,6 +71,8 @@ extension ProductListViewController {
                     cell.viewModel = self.viewModel
                     cell.setupUI(product)
                     return cell
+                case .BasketProductSectionItem(_):
+                    return UICollectionViewCell()
                 }
         }
         )

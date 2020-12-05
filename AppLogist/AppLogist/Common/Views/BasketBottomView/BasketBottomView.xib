@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BasketBottomView" customModule="AppLogist" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="435" height="75"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsO-ts-4oy">
+                    <rect key="frame" x="255" y="17.5" width="150" height="40"/>
+                    <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="6Nr-of-jFY"/>
+                        <constraint firstAttribute="width" constant="150" id="fpQ-oi-Ulv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                    <state key="normal" title="    Sepeti Onayla    ">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MPx-u9-gqP">
+                    <rect key="frame" x="10" y="10" width="235" height="55"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFy-2k-33O">
+                            <rect key="frame" x="0.0" y="0.0" width="235" height="55"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="dFy-2k-33O" firstAttribute="leading" secondItem="MPx-u9-gqP" secondAttribute="leading" id="VVj-tR-G60"/>
+                        <constraint firstAttribute="trailing" secondItem="dFy-2k-33O" secondAttribute="trailing" id="Xnb-Jj-naG"/>
+                        <constraint firstItem="dFy-2k-33O" firstAttribute="top" secondItem="MPx-u9-gqP" secondAttribute="top" id="Zqj-TJ-8UI"/>
+                        <constraint firstAttribute="bottom" secondItem="dFy-2k-33O" secondAttribute="bottom" id="tnU-VQ-OmU"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="xsO-ts-4oy" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="G3a-8W-hir"/>
+                <constraint firstItem="xsO-ts-4oy" firstAttribute="leading" secondItem="MPx-u9-gqP" secondAttribute="trailing" constant="10" id="OE2-EA-bbI"/>
+                <constraint firstItem="MPx-u9-gqP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="P5r-h8-saR"/>
+                <constraint firstItem="MPx-u9-gqP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="pcc-8r-7qf"/>
+                <constraint firstAttribute="bottom" secondItem="MPx-u9-gqP" secondAttribute="bottom" constant="10" id="r7w-1c-I9A"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="xsO-ts-4oy" secondAttribute="trailing" constant="30" id="u9a-Oq-L5b"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="acceptBasket" destination="xsO-ts-4oy" id="yVa-kH-RDM"/>
+                <outlet property="totalPrice" destination="dFy-2k-33O" id="gzN-Od-2Tn"/>
+            </connections>
+            <point key="canvasLocation" x="152.80000000000001" y="-175.86206896551727"/>
+        </view>
+    </objects>
+</document>

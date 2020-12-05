@@ -23,4 +23,12 @@ class ProductListRepository : ProductListRepositoryProtocol{
             .asObservable()
     }
     
+    func checkout<T>(_ dump: T.Type, checkoutRequestBody: RequestProduct) -> Observable<T> where T : Decodable, T : Encodable {
+        return  provider.rx
+            .request(.checkout(checkoutBody: checkoutRequestBody))
+            .observeOn(MainScheduler.instance)
+            .map(T.self)
+            .asObservable()
+    }
+    
 }
